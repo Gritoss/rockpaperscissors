@@ -1,41 +1,30 @@
 let comp = 0;
 let userp = 0;
+let n = 0;
+let i =-1;
 
-function winner()
-{
-    let a="rock";
-    let b="paper";
-    let c="scissor";
-    for(let i=0;i<5;i++)
-    {
-        let x=userin();
-        if((x.toLowerCase()===a)||(x.toLowerCase()===b)||(x.toLowerCase()===c))
-            {
-                let y=comin();
-                if(y==="rock")
-                    rock(x)
-                else if(y==="paper")
-                    paper(x)
-                else if(y==="scissor")
-                    scissor(x)
-                
-            }
-        else
-        {
-            console.log("give correct input")
-            i--
-        }
-    }
-    if(userp<comp)
-        console.log("u lost forever")
-    else
-        console.log("u won bro,forever")
-}
-function userin()
-{
-    let x = prompt("enter rock paper or scissor");
-    return x
-}
+
+const roundbar = document.querySelector(".roundbar");
+const b1 = document.querySelector(".one");
+const b2 = document.querySelector(".two");
+const b3 = document.querySelector(".three");
+const b4 = document.querySelector(".four");
+const b5 = document.querySelector(".five");
+b1.addEventListener("click",()=>{n=1;i++;roundbar.style.height = "20px";roundbar.classList.add("disable-hover");b1.textContent="1";console.log(n)})
+b2.addEventListener("click",()=>{n=3;i++;roundbar.style.height = "20px";roundbar.classList.add("disable-hover");b1.textContent="3";console.log(n);console.log(i)})
+b3.addEventListener("click",()=>{n=5;i++;roundbar.style.height = "20px";roundbar.classList.add("disable-hover");b1.textContent="5"})
+b4.addEventListener("click",()=>{n=8;i++;roundbar.style.height = "20px";roundbarbar.classList.add("disable-hover");b1.textContent="8"})
+b5.addEventListener("click",()=>{n=10;i++;roundbar.style.height = "20px";roundbar.classList.add("disable-hover");b1.textContent="10"})
+
+let container = document.querySelector(".result")
+
+const rock = document.querySelector(".r");
+rock.addEventListener("click",()=>{rockplay();i++;console.log(i)})
+const paper = document.querySelector(".p");
+paper.addEventListener("click",()=>{paperplay();i++;console.log(i)})
+const scissor = document.querySelector(".s");
+scissor.addEventListener("click",()=>{scissorplay();i++;console.log(i)})
+
 function comin()
 {
     let x=Math.random();
@@ -47,52 +36,95 @@ function comin()
         return "scissor"
 }
 
-function paper(x)
+
+function result(){
+    if(i===n)
+        {
+            console.log("over")
+            const but1 = document.querySelector(".r");
+            const but2= document.querySelector(".p");
+            const but3 = document.querySelector(".s");
+            but1.classList.add("disable-button");
+            but2.classList.add("disable-button");
+            but3.classList.add("disable-button");
+        
+            if(userp<comp)
+                container.textContent="u lost forever";
+            else
+                container.textContent="u won bro,forever";
+        }
+}
+
+
+function paperplay()
 {
-    switch (x.toLowerCase()) {
+    let x=comin();
+    switch (x) {
         case "rock":
-            console.log("lost bro");
-            comp++;
+            container.textContent="win bro";
+            userp++;
+            console.log(userp)
+            console.log(comp)
+            result()
             break;
         case "paper":
-            console.log("draw bro");
+            container.textContent="draw bro";
+            console.log(userp)
+            console.log(comp)
+            result
             break;
         case "scissor":
-            console.log("win bro");
+            container.textContent="lost bro";
+            comp++;
+            console.log(userp)
+            console.log(comp)
+            result()
+            break;
+    }
+}
+function scissorplay()
+{
+    let x=comin();
+    switch (x) {
+        case "rock":
+            container.textContent="lost bro";
+            comp++;
+            console.log(userp)
+            console.log(comp)
+            break;
+        case "paper":
+            container.textContent="win bro";
+            userp++;
+            console.log(userp)
+            console.log(comp)
+            break;
+        case "scissor":
+            container.textContent="draw bro";
+            console.log(userp)
+            console.log(comp)
+            break;
+    }
+}
+function rockplay()
+{
+    let x=comin();
+    switch (x) {
+        case "rock":
+            container.textContent = "draw bro";
+            console.log(comp)
+            console.log(userp)
+            break;
+        case "paper":
+            container.textContent="lost bro";
+            console.log(userp)
+            console.log(comp)
+            comp++;
+            break;
+        case "scissor":
+            container.textContent="win bro";
+            console.log(userp)
+            console.log(comp)          
             userp++;
             break;
     }
 }
-function scissor(x)
-{
-    switch (x.toLowerCase()) {
-        case "rock":
-            console.log("win bro");
-            userp++;
-            break;
-        case "paper":
-            console.log("lost bro");
-            comp++;
-            break;
-        case "scissor":
-            console.log("draw bro");
-            break;
-    }
-}
-function rock(x)
-{
-    switch (x.toLowerCase()) {
-        case "rock":
-            console.log("draw bro");
-            break;
-        case "paper":
-            console.log("win bro");
-            userp++;
-            break;
-        case "scissor":
-            console.log("lost bro");
-            comp++;
-            break;
-    }
-}
-winner()
