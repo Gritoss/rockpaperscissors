@@ -13,7 +13,7 @@ const b5 = document.querySelector(".five");
 b1.addEventListener("click",()=>{n=1;i++;roundbar.style.height = "20px";roundbar.classList.add("disable-hover");b1.textContent="1";console.log(n)})
 b2.addEventListener("click",()=>{n=3;i++;roundbar.style.height = "20px";roundbar.classList.add("disable-hover");b1.textContent="3";console.log(n);console.log(i)})
 b3.addEventListener("click",()=>{n=5;i++;roundbar.style.height = "20px";roundbar.classList.add("disable-hover");b1.textContent="5"})
-b4.addEventListener("click",()=>{n=8;i++;roundbar.style.height = "20px";roundbarbar.classList.add("disable-hover");b1.textContent="8"})
+b4.addEventListener("click",()=>{n=8;i++;roundbar.style.height = "20px";roundbar.classList.add("disable-hover");b1.textContent="8"})
 b5.addEventListener("click",()=>{n=10;i++;roundbar.style.height = "20px";roundbar.classList.add("disable-hover");b1.textContent="10"})
 
 let container = document.querySelector(".result")
